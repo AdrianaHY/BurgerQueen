@@ -15,6 +15,12 @@ import Kitchen from './components/Kitchen';
 
 function App() {
   const [user, setUser] = useState(null)
+  const [order, setOrder] = useState({
+    client:"",
+    items:[],
+    total:0,
+    status:"pending",
+  })
 
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
@@ -41,7 +47,7 @@ function App() {
                 <Home user={user} />
               </Route>
               <Route path="/kitchen">
-                <Kitchen user={user} />
+                <Kitchen user={user} setOrder={setOrder} order={order} />
               </Route>
             </Switch>
           </div>

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Redirect } from 'react-router-dom'
+import { Redirect, Link } from 'react-router-dom'
 import { auth } from '../firebase'
 
 export default function Home(props) {
@@ -17,6 +17,7 @@ export default function Home(props) {
         <>
             <h1>User {props.user.email} is logged in</h1>
             <button onClick={handleLogout}>Log out</button>
+            <Link to="/kitchen"><button>Ordenar</button></Link>
         </>
     )
 }
